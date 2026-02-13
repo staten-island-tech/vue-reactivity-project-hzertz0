@@ -13,13 +13,12 @@
 </template>
 
 <script setup>
+
 import ingredients from '@/components/ingredients.vue'
 const list = [
-    {name: "Bat Wings",effect: "die",image: "/"},
-    {name: "Dragon Scales",effect: "big",image: "/"},
-    {name: "Fairy Dust",effect: "small",image: "/"},
-    {name: "Jellybean",effect: "boom",image: "/"},
-    {name: "Bear Claw",effect: "bang",image: "/"}
+    {name: "Bat Wings",description: "A pair of wings from a bat",image: "/batwings.png"},
+    {name: "Dragon Scales",description: "Scales harvested from a magical dragon",image: "./dragonscale.png"},
+    {name: "Jellybeans",description: "Some jellybeans from a random gas station",image: "./jellybean.png"},
 ]
 
 </script>

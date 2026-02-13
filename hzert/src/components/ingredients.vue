@@ -6,7 +6,8 @@
     </head>
     <div>
         <h2>{{ item.name }}</h2>
-        <h3>{{ item.effect}}</h3>
+        <img :src= item.image>
+        <p>{{ item.description}}</p>
         <button>Add Ingredient</button>
     </div>
 </template>
@@ -23,6 +24,11 @@ defineProps({
 <style scoped>
 *{
     font-family: "inter";
+}
+
+img {
+    max-width: 300px;
+    height: auto;
 }
 
 div {
