@@ -6,8 +6,12 @@
     </head>
     <div>
         <h1>Potion Brewer</h1>
+        <div class ="cauldron">
+            <h1>Cauldron</h1>
+            <img src="/cauldron.png">
+        </div>
         <div class = "container">
-            <ingredients v-for="item in list" :key="item.name":item="item"/>
+            <!--<ingredients v-for="item in list" :key="item.name":item="item"/>-->
         </div>
     </div>
 </template>
@@ -27,6 +31,18 @@ const list = [
 *{
     font-family: "inter";
     text-align: center ;
+}
+
+.cauldron {
+    width: 50%;
+    height: 750px;
+    color: white;
+    background-color: black;
+}
+
+img {
+    max-height: 500px;
+    width: auto
 }
 
 .container {
