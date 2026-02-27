@@ -7,20 +7,9 @@
       rel="stylesheet"
     />
   </head>
-  <div class="page">
-    <h1>Potion Brewer</h1>
-
-    <div class="cauldron">
-      <img src="/cauldron.png" />
-    </div>
-
-    <div class="recipelist">
-      <img src="/scroll.png" />
       <div class="container">
         <!--<ingredients v-for="item in list" :key="item.name" :item="item"/>-->
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup>
@@ -40,43 +29,19 @@ const list = [
 ]
 </script>
 
-<style scoped>
+<style>
 * {
   font-family: 'inter';
   text-align: center;
 }
 
-h1 {
-    color: black;
-}
+body {
+  margin: 0; /* remove default spacing */
+  font-family: 'Inter', sans-serif;
 
-.page {
-  min-height: 100vh;
-  background-image: url('/background.jpg');
+  background-image: url('/background.png');
+  background-attachment: fixed; 
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
-}
-
-.cauldron {
-  position: absolute;
-  bottom: 20px;
-  left: 650px;
-}
-
-.cauldron img {
-  height: 340px;
-}
-
-.recipelist {
-  position: absolute;
-  right: 100px;
-}
-
-.recipelist img{
-    height: 850px;  
 }
 
 .container {
