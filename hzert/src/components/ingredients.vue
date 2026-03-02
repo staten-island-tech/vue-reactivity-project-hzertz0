@@ -27,13 +27,13 @@ defineProps({
 }
 
 img {
-    max-width: 300px;
+    max-width: 150px;
     height: auto;
 }
 
 div {
     color: rgb(0, 0, 0);
-    width: 300px;
+    width: 150px;
     height: auto;
     font-size: 20px;
     margin: 25px auto;

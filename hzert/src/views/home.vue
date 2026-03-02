@@ -7,8 +7,11 @@
       rel="stylesheet"
     />
   </head>
-      <div class="container">
-        <!--<ingredients v-for="item in list" :key="item.name" :item="item"/>-->
+      <div class ="ingredients">
+        <h1>Ingredients</h1>
+        <div class="container">
+          <ingredients v-for="item in list" :key="item.name" :item="item"/>
+        </div>
     </div>
 </template>
 
@@ -27,6 +30,7 @@ const list = [
     image: './jellybean.png',
   },
 ]
+
 </script>
 
 <style>
@@ -36,12 +40,24 @@ const list = [
 }
 
 body {
-  margin: 0; /* remove default spacing */
+  margin: 0;
   font-family: 'Inter', sans-serif;
 
   background-image: url('/background.png');
   background-attachment: fixed; 
   background-size: cover;
+}
+
+.ingredients {
+  color: white;
+  position: absolute;
+  left: 58.25%;
+  top: 22.5%;
+  width: 25%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container {
