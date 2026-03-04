@@ -10,8 +10,11 @@
       <div class="adds"></div>
     </div>
     <button @click="showIngredients">View Ingredients</button>
-    <div class="panel"></div>
-    <!-- <ingredients v-for="item in list" :key="item.name" :item="item" @add="addToPotion" />-->
+    <div class="panel" ref="panel">
+      <ingredients @click="addToPotion(item)" v-for="item in list" :key="item.name" :item="item">
+        <button>Add Ingredient</button>
+      </ingredients>
+    </div>
   </div>
 </template>
 
@@ -32,10 +35,16 @@ const list = ref([
   },
 ])
 
-function showIngredients(){
-  panel.classList.toggle("open");
+const panel = ref()
+function showIngredients() {
+  panel.value.classList.toggle('open')
 }
 
+const cauldron = []
+function addToPotion(item){
+  cauldron.push(item)
+  console.log(cauldron)
+}
 </script>
 
 <style>
@@ -65,6 +74,20 @@ body {
   justify-content: center;
 }
 
+button {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
 .adds {
   color: black;
   background-color: rgb(117, 200, 255);
@@ -85,12 +108,18 @@ body {
 }
 
 .panel {
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 0;
+  height: 100%;
+  background-color: rgb(68, 196, 106);
+  transition: width 0.4s ease;
+  overflow: scroll;
 }
 
 .panel.open {
-  width: 300px;
+  width: 250px;
   padding: 20px;
 }
-
 </style>

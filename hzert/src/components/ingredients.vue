@@ -3,7 +3,7 @@
     <h2>{{ item.name }}</h2>
     <img :src="item.image" />
     <p>{{ item.description }}</p>
-    <button @click="addToCart(item)">Add Ingredient</button>
+    <slot></slot>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ defineProps({
     required: true,
   },
 })
+
 </script>
 
 <style scoped>
@@ -45,18 +46,5 @@ div {
 div:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
-}
-button {
-  background-color: green;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
 }
 </style>
