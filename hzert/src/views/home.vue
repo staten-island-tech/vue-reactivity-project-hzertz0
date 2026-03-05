@@ -2,18 +2,20 @@
   <div class="ingredients">
     <h1>Ingredients</h1>
     <div class="addedingredients">
-      <div class="adds"></div>
-      <div class="adds"></div>
-      <div class="adds"></div>
-      <div class="adds"></div>
-      <div class="adds"></div>
-      <div class="adds"></div>
+      <div class="adds" v-for="i in 6" :key="i">
+        <span v-if="cauldron[i-1]">
+          {{ cauldron[i-1].name }}
+        </span>
+      </div>
     </div>
-    <button @click="showIngredients">View Ingredients</button>
     <div class="panel" ref="panel">
       <ingredients @click="addToPotion(item)" v-for="item in list" :key="item.name" :item="item">
         <button>Add Ingredient</button>
       </ingredients>
+    </div>
+    <div class="pageButtons">
+      <button @click="showIngredients">View Ingredients</button>
+      <button @click="emptyIngredients">Empty Ingredients</button>
     </div>
   </div>
 </template>
@@ -40,17 +42,26 @@ function showIngredients() {
   panel.value.classList.toggle('open')
 }
 
-const cauldron = []
+let cauldron = ref([])
 function addToPotion(item){
-  cauldron.push(item)
-  console.log(cauldron)
+  if (cauldron.value.length < 6){
+    cauldron.value.push(item)
+  } else {
+    console.log("full")
+  }
 }
+
+function emptyIngredients(){
+  cauldron.value = []
+}
+
 </script>
 
 <style>
 * {
   font-family: 'inter';
   text-align: center;
+  justify-content: center;
 }
 
 body {
@@ -60,6 +71,12 @@ body {
   background-image: url('/background.png');
   background-attachment: fixed;
   background-size: cover;
+}
+
+.pageButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ingredients {
@@ -80,8 +97,6 @@ button {
   color: rgb(0, 0, 0);
   padding: 10px 20px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
