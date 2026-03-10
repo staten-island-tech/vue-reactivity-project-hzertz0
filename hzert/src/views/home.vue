@@ -16,6 +16,7 @@
     <div class="pageButtons">
       <button @click="showIngredients">View Ingredients</button>
       <button @click="emptyIngredients">Empty Ingredients</button>
+      <button @click="brewPotion" :disabled="cauldron.length === 0">Brew Potion</button>
     </div>
   </div>
 </template>
@@ -55,6 +56,12 @@ function emptyIngredients(){
   cauldron.value = []
 }
 
+function brewPotion() {
+  if (cauldron.value.length === 0) return
+  alert(`You brewed a potion with: ${cauldron.value.map(i => i.name).join(', ')}!`)
+  cauldron.value = []
+}
+
 </script>
 
 <style>
@@ -77,6 +84,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .ingredients {
